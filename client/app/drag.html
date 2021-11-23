@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drag & Drop</title>
+    <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
+    <link rel="stylesheet" type="text/css" href="drag-drop.css">
+    <script src="drag-drop.js" defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  
+  <style>
+    input[type=text]  {
+    border: none;
+    border-radius: 0px;
+    height: 60px;
+    width: 250px;
+    background: #95cbae;
+    text-align: center;
+    /* margin-left: 6px; */
+    margin: 5px;
+    border: 1px solid #1cbbc0;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(37, 124, 165);
+    opacity: 1; /* Firefox */
+    font-size: 12px;
+    }
+
+    .placeholder_heading::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(15, 20, 22);
+    opacity: 1; /* Firefox */
+    font-size: 14px;
+    font-weight: 700;
+    }
+    /* .placeholder_dropzone::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(15, 20, 22);
+    opacity: 1; /* Firefox */
+    font-size: 14px;
+    font-weight: 700;
+    } */
+   
+    
+    .time{
+    color: black;
+    font-weight: 700;
+    }
+    .condition{
+    background: rgb(206, 231, 243);
+    }
+    .monitor{
+    background: rgb(145, 207, 236);
+    }
+    .action{
+    background: #95cbae;
+    }
+    .main_div {
+    padding: 40px;
+    }
+    .sub_div {
+    border: 1px solid rgb(216, 213, 213);
+    padding-top: 30px;
+    height: 750px;
+    }
+    .draggable {
+    /* background: #95cbae; */
+    border: 1px solid #1cbbc0;
+    /* width: 200px; */
+    /* padding: 2px; */
+    /* margin: 3px; */
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+    height: 50px;
+    padding: 6px;
+    }
+    label{
+    text-align: center;
+    margin: auto;
+    }
+    .tab_text {
+    padding-top: 40px;
+    margin-left: 20px;
+    }
+    .drop-zone {
+    /* width: 300px; */
+    padding: 2px;
+    margin: 2px;
+    background: #fff;
+    /* border: 1px solid #000; */
+    width: 250px;
+    text-align: left;
+    margin: auto;
+    }
+    /* Dragged source element style */
+    .dragged {
+    opacity: .6;
+    border-style: dashed;
+    }
+    /* Drag feedback image style */
+    .drag-feedback {
+    background: lightskyblue;
+    border: 1px solid dodgerblue;
+    }
+    /* drop zone highlights */
+    .active-zone {
+    background: #fffad6;
+    border: 2px solid #aaa479;
+    }
+    .over-zone {
+    background: #ffc6c6;
+    border: 2px solid #931414;
+    }
+    /* Style for text drag test area */
+    .drag-text-test textarea {
+    width: 100%;
+    padding: 10px;
+    height: 36px;
+    }
+    .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    margin-top: 53px;
+    height:80px;
+    width:80px;
+    }
+    .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    }
+    .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    }
+    /* flex css*/
+    * {
+    box-sizing: border-box;
+    }
+    .flex-item-seven{
+    width: 30%;
+    }
+    .flex-item-six{
+    margin: auto;
+    padding: 10px;
+    }
+    .flex-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* font-size: 30px; */
+    text-align: center;
+    }
+    .flex-item-one{
+    /* background-color: #f1f1f1; */
+    /* padding: 10px; */
+    flex: 24%;
+    }
+    .flex-item-two {
+    /* background-color: rgb(204, 204, 204); */
+    /* padding: 10px; */
+    flex: 5%;
+    }
+    .flex-item-three {
+    /* background-color: red; */
+    /* padding: 10px; */
+    flex: 24%;
+    }.flex-item-four {
+    /* background-color: dodgerblue; */
+    /* padding: 10px; */
+    flex: 5%;
+    }.flex-item-five {
+    /* background-color: yellow; */
+    /* padding: 10px; */
+    flex: 24%;
+    }
+    /* Responsive layout - makes a one column-layout instead of a two-column layout */
+    @media (max-width: 800px) {
+    .flex-item-right, .flex-item-left {
+    flex: 100%;
+    }
+    }
+  </style>
+  <body>
+    <div class="row main_div">
+      <div class="col-md-5 sub_div">
+        <p class="main_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.
+        </p>
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Nurses Notes</a></li>
+          <li><a data-toggle="tab" href="#menu1">History and Physical</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <p class="tab_text"> <span class="time"> 12:15 PM </span> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..
+            </p>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <p class="tab_text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-md-7 sub_div" >
+        <h1>Paragraph goes here</h1>
+        <p>In this example, we change the percentage of flex to create different layouts for different screen size
+        </p>
+        <div class="flex-container">
+          <div class="flex-item-one">
+            <div class="drag-text-test">
+              <label>
+              <br>
+              <input type="text" name="drag-text-test"  class="placeholder_dropzone" placeholder="Drop Zone 31" style="background:  #95cbae">
+              </label>
+              <label>
+              <br>
+              <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: #95cbae; ">
+              </label>
+            </div>
+          </div>
+          <div class="flex-item-two">
+            <i class="arrow right"></i>
+          </div>
+          <div class="flex-item-three">
+            <div class="drag-text-test">
+              <br>
+              <br>
+              <label>
+              <br>
+              <input type="text" name="drag-text-test"  placeholder="condition" style="background: #cee7f3 ">
+              </label>
+            </div>
+          </div>
+          <div class="flex-item-four">
+            <i class="arrow left"></i>
+          </div>
+          <div class="flex-item-five">
+            <div class="drag-text-test">
+              <label>
+              <br>
+              <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background:  rgb(145, 207, 236) ">
+              </label>
+              <label>
+              <br>
+              <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: rgb(145, 207, 236); ">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="flex-container">
+          <div class="flex-item-six">
+            <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
+              <label>
+              <input type="text" name="drag-text-test" class="placeholder_heading" placeholder="Action To take" style="background: #cee7f3 ">
+              </label>
+              <div class="drop-zone">
+                <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+                </div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+                </div>    
+                      </div>
+              <div class="drop-zone">
+                <div class="draggable action">Text 3</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable action">Text 4</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable action">Text 5</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-item-seven">
+          </div>
+          <div class="flex-item-six">
+            <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
+              <label>
+              <input type="text"  placeholder="Potentical condition"  class="placeholder_heading" style="background: #cee7f3 ">
+              </label>
+              <div class="drop-zone">
+                <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+                </div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable condition">Text 1</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable condition">Text 1</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable condition">Text 1</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable condition">Text 1</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-item-seven">
+          </div>
+          <div class="flex-item-six">
+            <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
+              <label>
+              <input type="text" name="drag-text-test"  placeholder="Heading Goes here" class="placeholder_heading" style="background: #cee7f3; ">
+              </label>
+              <div class="drop-zone">
+                <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+                </div>              </div>
+              <div class="drop-zone">
+                <div class="draggable monitor">Text 2</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable monitor">Text 3</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable monitor">Text 4</div>
+              </div>
+              <div class="drop-zone">
+                <div class="draggable monitor">Text 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    initDragAndDrop();
+    
+    function initDragAndDrop() {
+        // Collect all draggable elements and drop zones
+        let draggables = document.querySelectorAll(".draggable");
+        let dropZones = document.querySelectorAll(".drop-zone");
+        initDraggables(draggables);
+        initDropZones(dropZones);
+    }
+    
+    function initDraggables(draggables) {
+        for (const draggable of draggables) {
+            initDraggable(draggable);
+        }
+    }
+    
+    function initDropZones(dropZones) {
+        for (let dropZone of dropZones) {
+            initDropZone(dropZone);
+        }
+    }
+    
+    /**
+     * Set all event listeners for draggable element
+     * https://developer.mozilla.org/en-US/docs/Web/API/DragEvent#Event_types
+     */
+    function initDraggable(draggable) {
+        draggable.addEventListener("dragstart", dragStartHandler);
+        draggable.addEventListener("drag", dragHandler);
+        draggable.addEventListener("dragend", dragEndHandler);
+    
+        // set draggable elements to draggable
+        draggable.setAttribute("draggable", "true");
+    }
+    
+    /**
+     * Set all event listeners for drop zone
+     * https://developer.mozilla.org/en-US/docs/Web/API/DragEvent#Event_types
+     */
+    function initDropZone(dropZone) {
+        dropZone.addEventListener("dragenter", dropZoneEnterHandler);
+        dropZone.addEventListener("dragover", dropZoneOverHandler);
+        dropZone.addEventListener("dragleave", dropZoneLeaveHandler);
+        dropZone.addEventListener("drop", dropZoneDropHandler);
+    }
+    
+    /**
+     * Start of drag operation, highlight drop zones and mark dragged element
+     * The drag feedback image will be generated after this function
+     * https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#dragfeedback
+     */
+    function dragStartHandler(e) {
+        setDropZonesHighlight();
+        this.classList.add('dragged', 'drag-feedback');
+        // we use these data during the drag operation to decide
+        // if we handle this drag event or not
+        e.dataTransfer.setData("type/dragged-box", 'dragged');
+        e.dataTransfer.setData("text/plain", this.textContent.trim());
+        deferredOriginChanges(this, 'drag-feedback');
+    }
+    
+    /**
+     * While dragging is active we can do something
+     */
+    function dragHandler() {
+        // do something... if you want
+    }
+    
+    /**
+     * Very last step of the drag operation, remove all added highlights and others
+     */
+    function dragEndHandler() {
+        setDropZonesHighlight(false);
+        this.classList.remove('dragged');
+    }
+    
+    /**
+     * When entering a drop zone check if it should be allowed to
+     * drop an element here and highlight the zone if needed
+     */
+    function dropZoneEnterHandler(e) {
+        // we can only check the data transfer type, not the value for security reasons
+        // https://www.w3.org/TR/html51/editing.html#drag-data-store-mode
+        if (e.dataTransfer.types.includes('type/dragged-box')) {
+            this.classList.add("over-zone");
+            // The default action of this event is to set the dropEffect to "none" this way
+            // the drag operation would be disallowed here we need to prevent that
+            // if we want to allow the dragged element to be drop here
+            // https://developer.mozilla.org/en-US/docs/Web/API/Document/dragenter_event
+            // https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/dropEffect
+            e.preventDefault();
+        }
+    }
+    
+    /**
+     * When moving inside a drop zone we can check if it should be
+     * still allowed to drop an element here
+     */
+    function dropZoneOverHandler(e) {
+        if (e.dataTransfer.types.includes('type/dragged-box')) {
+            // The default action is similar as above, we need to prevent it
+            e.preventDefault();
+        }
+    }
+    
+    /**
+     * When we leave a drop zone we check if we should remove the highlight
+     */
+    function dropZoneLeaveHandler(e) {
+        if (e.dataTransfer.types.includes('type/dragged-box') &&
+            e.relatedTarget !== null &&
+            e.currentTarget !== e.relatedTarget.closest('.drop-zone')) {
+            // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/relatedTarget
+            this.classList.remove("over-zone");
+        }
+    }
+    
+    /**
+     * On successful drop event, move the element
+     */
+    function dropZoneDropHandler(e) {
+        // We have checked in the "dragover" handler (dropZoneOverHandler) if it is allowed
+        // to drop here, so it should be ok to move the element without further checks
+        let draggedElement = document.querySelector('.dragged');
+        e.currentTarget.appendChild(draggedElement);
+    
+        // We  drop default action (eg. move selected text)
+        // default actions detailed here:
+        // https://www.w3.org/TR/html51/editing.html#drag-and-drop-processing-model
+        e.preventDefault();
+    
+    }
+    
+    
+    /**
+     * Highlight all drop zones or remove highlight
+     */
+    function setDropZonesHighlight(highlight = true) {
+        const dropZones = document.querySelectorAll(".drop-zone");
+        for (const dropZone of dropZones) {
+            if (highlight) {
+                dropZone.classList.add("active-zone");
+            } else {
+                dropZone.classList.remove("active-zone");
+                dropZone.classList.remove("over-zone");
+            }
+        }
+    }
+    
+    /**
+     * After the drag feedback image has been generated we can remove the class we added
+     * for the image generation and/or change the originally dragged element
+     * https://javascript.info/settimeout-setinterval#zero-delay-settimeout
+     */
+    function deferredOriginChanges(origin, dragFeedbackClassName) {
+        setTimeout(() => {
+            origin.classList.remove(dragFeedbackClassName);
+        });
+    }
+    var myFavMovie = {
+    title: 'Puff the Magic Dragon',
+    duration: 30,
+    stars: ['Puff', 'Jackie', 'Living Sneezes']
+    };
+    
+    function printMovie(movie) {
+    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
+    var starsString = 'Stars: ';
+    for (var i = 0; i < movie.stars.length; i++) {
+        starsString += movie.stars[i];
+        if (i != movie.stars.length -1) {
+            starsString += ', ';
+        }
+    }
+    console.log(starsString);
+    }
+    
+    // Or...
+    function printMovie(movie) {
+    console.log(movie.title + ' lasts for ' + movie.duration + ' minutes');
+    console.log('It stars ' + movie.stars.join(', '));
+    }
+    printMovie(myFavMovie);
+    
+  </script>
+</html>
