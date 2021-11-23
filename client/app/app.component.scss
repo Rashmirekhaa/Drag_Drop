@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:700');
+
+
+.main_div {
+   padding: 40px;
+}
+
+.sub_div {
+    border: 1px solid rgb(216, 213, 213);
+    padding-top: 30px;
+    height: 400px;
+}
+input[type=text]  {
+    border: none;
+    border-radius: 0px;
+    height: 60px;
+    width: 250px;
+    background: #95cbae;
+    text-align: center;
+    /* margin-left: 6px; */
+    margin: 5px;
+    border: 1px solid #1cbbc0;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(37, 124, 165);
+    opacity: 1; /* Firefox */
+    font-size: 12px;
+    }
+
+    .placeholder_heading::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(15, 20, 22);
+    opacity: 1; /* Firefox */
+    font-size: 14px;
+    font-weight: 700;
+    }
+  
+    .placeholder_dropzone::placeholder{
+    color: rgb(15, 20, 22);
+    opacity: 1; /* Firefox */
+    font-size: 14px;
+    font-weight: 700;
+    } 
+   
+    
+    .time{
+    color: black;
+    font-weight: 700;
+    }
+    .condition{
+    background: rgb(206, 231, 243);
+    }
+    .monitor{
+    background: rgb(145, 207, 236);
+    }
+    .action{
+    background: #95cbae;
+    }
+    .main_div {
+    padding: 40px;
+    }
+    .sub_div {
+    border: 1px solid rgb(216, 213, 213);
+    padding-top: 30px;
+    height: 750px;
+    }
+    .draggable {
+    /* background: #95cbae; */
+    border: 1px solid #1cbbc0;
+    /* width: 200px; */
+    /* padding: 2px; */
+    /* margin: 3px; */
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+    height: 50px;
+    padding: 6px;
+    }
+    label{
+    text-align: center;
+    margin: auto;
+    }
+    .tab_text {
+    padding-top: 40px;
+    margin-left: 20px;
+    }
+    .drop-zone {
+    /* width: 300px; */
+    padding: 2px;
+    margin: 2px;
+    background: #fff;
+    /* border: 1px solid #000; */
+    width: 250px;
+    text-align: left;
+    margin: auto;
+    }
+    /* Dragged source element style */
+    .dragged {
+    opacity: .6;
+    border-style: dashed;
+    }
+    /* Drag feedback image style */
+    .drag-feedback {
+    background: lightskyblue;
+    border: 1px solid dodgerblue;
+    }
+    /* drop zone highlights */
+    .active-zone {
+    background: #fffad6;
+    border: 2px solid #aaa479;
+    }
+    .over-zone {
+    background: #ffc6c6;
+    border: 2px solid #931414;
+    }
+    /* Style for text drag test area */
+    .drag-text-test textarea {
+    width: 100%;
+    padding: 10px;
+    height: 36px;
+    }
+    .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    margin-top: 53px;
+    height:80px;
+    width:80px;
+    }
+    .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    }
+    .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    }
+    /* flex css*/
+    * {
+    box-sizing: border-box;
+    }
+    .flex-item-seven{
+    width: 30%;
+    }
+    .flex-item-six{
+    margin: auto;
+    padding: 10px;
+    }
+    .flex-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* font-size: 30px; */
+    text-align: center;
+    }
+    .flex-item-one{
+    /* background-color: #f1f1f1; */
+    /* padding: 10px; */
+    flex: 24%;
+    }
+    .flex-item-two {
+    /* background-color: rgb(204, 204, 204); */
+    /* padding: 10px; */
+    flex: 5%;
+    }
+    .flex-item-three {
+    /* background-color: red; */
+    /* padding: 10px; */
+    flex: 24%;
+    }.flex-item-four {
+    /* background-color: dodgerblue; */
+    /* padding: 10px; */
+    flex: 5%;
+    }.flex-item-five {
+    /* background-color: yellow; */
+    /* padding: 10px; */
+    flex: 24%;
+    }
+    /* Responsive layout - makes a one column-layout instead of a two-column layout */
+    @media (max-width: 800px) {
+    .flex-item-right, .flex-item-left {
+    flex: 100%;
+    }
+    }

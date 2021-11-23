@@ -1,0 +1,156 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+<script src="drag-drop.js" defer></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="row main_div">
+  <div class="col-md-5 sub_div" ng-controller='MyCtrl'>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua.</p>
+
+      <ul class="nav nav-tabs">
+          <li ng-class="{'active': tabName=='tab1'}" ng-click="tabName='tab1'">
+            <a data-toggle="tab">Nurses Notes</a>
+          </li>
+          <li ng-class="{'active': tabName=='tab2'}" ng-click="tabName='tab2'">
+            <a data-toggle="tab">History and Physical</a>
+          </li>
+
+      </ul>
+      <div ng-switch="tabName" class="tab-content">
+        <div ng-switch-when="tab1">
+          <p class="tab_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div ng-switch-when="tab2">
+          <p class="tab_text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+  </div>
+
+   
+  <div class="col-md-7 sub_div" >
+    <h1>Paragraph goes here</h1>
+    <p>In this example, we change the percentage of flex to create different layouts for different screen size
+    </p>
+    <div class="flex-container">
+      <div class="flex-item-one">
+        <div class="drag-text-test">
+          <label>
+          <br>
+          <input type="text" name="drag-text-test"  class="placeholder_dropzone" placeholder="Drop Zone 31" style="background:  #95cbae">
+          </label>
+          <label>
+          <br>
+          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: #95cbae; ">
+          </label>
+        </div>
+      </div>
+      <div class="flex-item-two">
+        <i class="arrow right"></i>
+      </div>
+      <div class="flex-item-three">
+        <div class="drag-text-test">
+          <br>
+          <br>
+          <label>
+          <br>
+          <input type="text" name="drag-text-test"  placeholder="condition" style="background: #cee7f3 ">
+          </label>
+        </div>
+      </div>
+      <div class="flex-item-four">
+        <i class="arrow left"></i>
+      </div>
+      <div class="flex-item-five">
+        <div class="drag-text-test">
+          <label>
+          <br>
+          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background:  rgb(145, 207, 236) ">
+          </label>
+          <label>
+          <br>
+          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: rgb(145, 207, 236); ">
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="flex-container">
+      <div class="flex-item-six">
+        <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
+          <label>
+          <input type="text" name="drag-text-test" class="placeholder_heading" placeholder="Action To take" style="background: #cee7f3 ">
+          </label>
+          <div class="drop-zone">
+            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+            </div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+            </div>    
+                  </div>
+          <div class="drop-zone">
+            <div class="draggable action">Text 3</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable action">Text 4</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable action">Text 5</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item-seven">
+      </div>
+      <div class="flex-item-six">
+        <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
+          <label>
+          <input type="text"  placeholder="Potentical condition"  class="placeholder_heading" style="background: #cee7f3 ">
+          </label>
+          <div class="drop-zone">
+            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+            </div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable condition">Text 1</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable condition">Text 1</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable condition">Text 1</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable condition">Text 1</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item-seven">
+      </div>
+      <div class="flex-item-six">
+        <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
+          <label>
+          <input type="text" name="drag-text-test"  placeholder="Heading Goes here" class="placeholder_heading" style="background: #cee7f3; ">
+          </label>
+          <div class="drop-zone">
+            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
+            </div>              </div>
+          <div class="drop-zone">
+            <div class="draggable monitor">Text 2</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable monitor">Text 3</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable monitor">Text 4</div>
+          </div>
+          <div class="drop-zone">
+            <div class="draggable monitor">Text 5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
