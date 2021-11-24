@@ -4,8 +4,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<div class="row main_div">
-  <div class="col-md-5 sub_div" ng-controller='MyCtrl'>
+<div class="row main_div" ng-controller='MyCtrl'>
+  <div class="col-md-5 sub_div" >
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
           dolore magna aliqua.</p>
 
@@ -38,14 +38,19 @@
     <div class="flex-container">
       <div class="flex-item-one">
         <div class="drag-text-test">
-          <label>
-          <br>
-          <input type="text" name="drag-text-test"  class="placeholder_dropzone" placeholder="Drop Zone 31" style="background:  #95cbae">
-          </label>
-          <label>
-          <br>
-          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: #95cbae; ">
-          </label>
+          <div>
+            <label>
+              <br>
+              <input type="text" name="drag-text-test"  class="placeholder_dropzone" placeholder="Drop Zone 31" style="background:  #95cbae" >
+              </label>
+          </div>
+          <div>
+            <label>
+              <br>
+              <input type="text" name="drag-text-test"  class="placeholder_dropzone" placeholder="Drop Zone 31" style="background:  #95cbae" >
+              </label>
+          </div>
+          
         </div>
       </div>
       <div class="flex-item-two">
@@ -57,7 +62,7 @@
           <br>
           <label>
           <br>
-          <input type="text" name="drag-text-test"  placeholder="condition" style="background: #cee7f3 ">
+          <input type="text" name="drag-text-test"  placeholder="condition" style="background: #cee7f3 " >
           </label>
         </div>
       </div>
@@ -68,11 +73,13 @@
         <div class="drag-text-test">
           <label>
           <br>
-          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background:  rgb(145, 207, 236) ">
+          <input type="text" name="drag-text-test"
+          placeholder="Drop Zone Gudu" style="background:  rgb(145, 207, 236) ">
           </label>
           <label>
           <br>
-          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: rgb(145, 207, 236); ">
+          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: rgb(145, 207, 236);"
+          >
           </label>
         </div>
       </div>
@@ -81,25 +88,13 @@
       <div class="flex-item-six">
         <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
           <label>
-          <input type="text" name="drag-text-test" class="placeholder_heading" placeholder="Action To take" style="background: #cee7f3 ">
+          <input type="text" name="drag-text-test" class="placeholder_heading" placeholder="Action To take" style="background: #cee7f3 " readonly>
           </label>
-          <div class="drop-zone">
-            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
-            </div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
-            </div>    
-                  </div>
-          <div class="drop-zone">
-            <div class="draggable action">Text 3</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable action">Text 4</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable action">Text 5</div>
-          </div>
+      
+          <ul class="drop-zone">
+              <li class="draggable action" draggable="true"  ui-draggable="true" drag="action"  ng-repeat="action in actionList">{{action}}</li>
+          </ul>
+         
         </div>
       </div>
       <div class="flex-item-seven">
@@ -109,22 +104,11 @@
           <label>
           <input type="text"  placeholder="Potentical condition"  class="placeholder_heading" style="background: #cee7f3 ">
           </label>
-          <div class="drop-zone">
-            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
-            </div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable condition">Text 1</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable condition">Text 1</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable condition">Text 1</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable condition">Text 1</div>
-          </div>
+         
+          <ul class="drop-zone">
+              <li class="draggable condition" draggable="true"  ui-draggable="true" drag="conditionInd"  ng-repeat="conditionInd in conditionList">{{conditionInd}}</li>
+          </ul>
+          
         </div>
       </div>
       <div class="flex-item-seven">
@@ -134,21 +118,11 @@
           <label>
           <input type="text" name="drag-text-test"  placeholder="Heading Goes here" class="placeholder_heading" style="background: #cee7f3; ">
           </label>
-          <div class="drop-zone">
-            <div class="draggable action">Maybe you have a custom-styled ordered list you want to show off
-            </div>              </div>
-          <div class="drop-zone">
-            <div class="draggable monitor">Text 2</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable monitor">Text 3</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable monitor">Text 4</div>
-          </div>
-          <div class="drop-zone">
-            <div class="draggable monitor">Text 5</div>
-          </div>
+          <ul class="drop-zone">
+              <li class="draggable monitor" draggable="true"  ui-draggable="true" drag="symptomInd" 
+              ng-repeat="symptomInd in symptomList track by $index">{{symptomInd}}</li>
+          </ul>
+          
         </div>
       </div>
     </div>

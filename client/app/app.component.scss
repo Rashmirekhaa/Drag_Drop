@@ -75,6 +75,7 @@ input[type=text]  {
     font-weight: 600;
     height: 50px;
     padding: 6px;
+    margin-bottom: 6px;
     }
     label{
     text-align: center;
@@ -140,7 +141,7 @@ input[type=text]  {
     box-sizing: border-box;
     }
     .flex-item-seven{
-    width: 30%;
+    // width: 30%;
     }
     .flex-item-six{
     margin: auto;
@@ -148,7 +149,7 @@ input[type=text]  {
     }
     .flex-container {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     /* font-size: 30px; */
     text-align: center;
     }
