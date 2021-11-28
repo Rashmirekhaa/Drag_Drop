@@ -41,13 +41,14 @@
           <div>
             <label>
               <br>
-              <input type="text" name="drag-text-test"  class="placeholder_dropzone" placeholder="Drop Zone 31" style="background:  #95cbae" >
-              </label>
-          </div>
-          <div>
-            <label>
-              <br>
-              <input type="text" name="drag-text-test"  class="placeholder_dropzone" placeholder="Drop Zone 31" style="background:  #95cbae" >
+              <ul>
+                  <ol 
+                    class="actionPut" 
+                    ui-droppable="true"
+                    ui-on-Drop="onDrop($data,selectedActionList,$index,zones[0])"
+                    ng-repeat="selectedAction in selectedActionList track by $index">{{selectedAction}}
+                  </ol>
+              </ul>
               </label>
           </div>
           
@@ -62,7 +63,12 @@
           <br>
           <label>
           <br>
-          <input type="text" name="drag-text-test"  placeholder="condition" style="background: #cee7f3 " >
+          <ol 
+            class="actionPut" 
+            ui-droppable="true"
+            ui-on-Drop="onDrop($data,selectedConditionList,$index,zones[1])"
+            ng-repeat="selectedCondition in selectedConditionList track by $index">{{selectedCondition}}
+          </ol>
           </label>
         </div>
       </div>
@@ -71,16 +77,12 @@
       </div>
       <div class="flex-item-five">
         <div class="drag-text-test">
-          <label>
-          <br>
-          <input type="text" name="drag-text-test"
-          placeholder="Drop Zone Gudu" style="background:  rgb(145, 207, 236) ">
-          </label>
-          <label>
-          <br>
-          <input type="text" name="drag-text-test"  placeholder="Drop Zone 31" style="background: rgb(145, 207, 236);"
-          >
-          </label>
+          <ol 
+            class="actionPut" 
+            ui-droppable="true"
+            ui-on-Drop="onDrop($data,selectedSymptomList,$index,zones[2])"
+            ng-repeat="selectedSymptom in selectedSymptomList track by $index">{{selectedSymptom}}
+          </ol>
         </div>
       </div>
     </div>
@@ -92,7 +94,7 @@
           </label>
       
           <ul class="drop-zone">
-              <li class="draggable action" draggable="true"  ui-draggable="true" drag="action"  ng-repeat="action in actionList">{{action}}</li>
+              <ol class="draggable action" draggable="true"  ui-draggable="true" drag="action"  ng-repeat="action in actionList">{{action}}</ol>
           </ul>
          
         </div>
@@ -102,11 +104,11 @@
       <div class="flex-item-six">
         <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
           <label>
-          <input type="text"  placeholder="Potentical condition"  class="placeholder_heading" style="background: #cee7f3 ">
+          <input type="text"  placeholder="Potentical condition"  class="placeholder_heading" style="background: #cee7f3 " readonly>
           </label>
          
           <ul class="drop-zone">
-              <li class="draggable condition" draggable="true"  ui-draggable="true" drag="conditionInd"  ng-repeat="conditionInd in conditionList">{{conditionInd}}</li>
+              <ol class="draggable condition" draggable="true"  ui-draggable="true" drag="conditionInd"  ng-repeat="conditionInd in conditionList">{{conditionInd}}</ol>
           </ul>
           
         </div>
@@ -116,11 +118,11 @@
       <div class="flex-item-six">
         <div class="drag-text-test" style="border:1px solid #141313;padding: inherit;">
           <label>
-          <input type="text" name="drag-text-test"  placeholder="Heading Goes here" class="placeholder_heading" style="background: #cee7f3; ">
+          <input type="text" name="drag-text-test"  placeholder="Heading Goes here" class="placeholder_heading" style="background: #cee7f3; " readonly>
           </label>
           <ul class="drop-zone">
-              <li class="draggable monitor" draggable="true"  ui-draggable="true" drag="symptomInd" 
-              ng-repeat="symptomInd in symptomList track by $index">{{symptomInd}}</li>
+              <ol class="draggable monitor" draggable="true"  ui-draggable="true" drag="symptomInd" 
+              ng-repeat="symptomInd in symptomList track by $index">{{symptomInd}}</ol>
           </ul>
           
         </div>

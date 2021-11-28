@@ -140,9 +140,9 @@ input[type=text]  {
     * {
     box-sizing: border-box;
     }
-    .flex-item-seven{
-    // width: 30%;
-    }
+    // .flex-item-seven{
+    // // width: 30%;
+    // }
     .flex-item-six{
     margin: auto;
     padding: 10px;
@@ -181,4 +181,15 @@ input[type=text]  {
     .flex-item-right, .flex-item-left {
     flex: 100%;
     }
+    }
+
+    .actionPut{
+        margin: 10px;
+        padding: 10px;
+        background: rgb(145, 207, 236);
+        opacity: 1; /* Firefox */
+        font-size: 14px;
+        font-weight: 700;
+        height: 50px;
+        width: 250px;
     }
